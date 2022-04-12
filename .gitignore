@@ -1,0 +1,9 @@
+node_modules
+/.cache
+/netlify/functions/server/index.js
+/public/build
+/.netlify
+
+.env
+
+/cockroach-v21.2.5.darwin-10.9-amd64
