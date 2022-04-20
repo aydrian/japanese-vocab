@@ -51,24 +51,42 @@ export default function PracticeWordRoute() {
   const { word } = useLoaderData();
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Let's learn some Japanese</h1>
       <div>
         <Form method="post">
           <input type="hidden" name="wordId" value={word.id} />
-          <h1>{word.hiragana}</h1>
-          {!word.isHiragana && <h2>{word.romaji}</h2>}
-          {actionData ? (
-            <>
-              <h3>{actionData.word.english}</h3>
-              <button type="submit" name="_action" value="next">
-                Next
-              </button>
-            </>
-          ) : (
-            <button type="submit" name="_action" value="reveal">
-              Reveal
-            </button>
-          )}
+          <div className="flex justify-center">
+            <div className="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+              <h3 className="text-gray-900 text-3xl leading-tight font-medium mb-2">
+                {word.hiragana}
+              </h3>
+              {!word.isHiragana && (
+                <p className="text-gray-700 text-base mb-4">{word.romaji}</p>
+              )}
+
+              {actionData ? (
+                <>
+                  <h3>{actionData.word.english}</h3>
+                  <button
+                    type="submit"
+                    name="_action"
+                    value="next"
+                    className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                  >
+                    Next
+                  </button>
+                </>
+              ) : (
+                <button
+                  type="submit"
+                  name="_action"
+                  value="reveal"
+                  className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                >
+                  Reveal
+                </button>
+              )}
+            </div>
+          </div>
         </Form>
       </div>
     </div>

@@ -5,8 +5,10 @@
   "license": "",
   "sideEffects": false,
   "scripts": {
-    "build": "remix build",
-    "dev": "cross-env NODE_ENV=development netlify dev",
+    "build": "npm run build:css && remix build",
+    "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
+    "dev": "concurrently \"npm run dev:css\" \"cross-env NODE_ENV=development netlify dev\"",
+    "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
     "postinstall": "remix setup node",
     "start": "cross-env NODE_ENV=production netlify dev"
   },
@@ -25,9 +27,13 @@
   "devDependencies": {
     "@remix-run/dev": "^1.2.3",
     "@remix-run/eslint-config": "^1.2.3",
+    "autoprefixer": "^10.4.4",
+    "concurrently": "^7.1.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.9.0",
-    "prisma": "^3.11.0"
+    "postcss": "^8.4.12",
+    "prisma": "^3.11.0",
+    "tailwindcss": "^3.0.24"
   },
   "engines": {
     "node": ">=14"

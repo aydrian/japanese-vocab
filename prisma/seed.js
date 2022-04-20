@@ -268,11 +268,11 @@ function getHiragana() {
       romaji: "wo",
       hiragana: "を",
       english: "wo"
-    },
+    } /*,
     {
       romaji: "",
       hiragana: "",
       english: ""
-    }
+    }*/
   ];
 }
