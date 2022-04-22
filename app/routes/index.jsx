@@ -13,7 +13,9 @@ export const action = async ({ request }) => {
 export default function Index() {
   return (
     <div className='flex flex-col items-center justify-center h-95'>
-      <h1 className='text-4xl font-bold'>Let's learn some Japanese!</h1>
+      <h1 className='text-4xl font-bold text-center'>
+        Let's learn some Japanese!
+      </h1>
       <div>
         <form method='post' action='?index'>
           <button

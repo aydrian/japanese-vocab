@@ -55,7 +55,7 @@ export default function PracticeWordRoute() {
       <Form method='post'>
         <input type='hidden' name='wordId' value={word.id} />
         <div className=''>
-          <div className='bg-gray-100 border-2 border-gray-200  flex flex-col justify-center items-center p-10 rounded-lg hover:shadow-2xl transition-shadow w-96 duration-300'>
+          <div className='bg-gray-100 border-2 border-gray-200  flex flex-col justify-center items-center p-10 rounded-lg transition-shadow w-72 lg:w-96 duration-300'>
             <h3 className='text-6xl font-bold'>{word.hiragana}</h3>
             {!word.isHiragana && <p className=''>{word.romaji}</p>}
             {actionData ? (
