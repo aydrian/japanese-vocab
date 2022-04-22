@@ -49,18 +49,19 @@ export const action = async ({ request }) => {
 export default function PracticeWordRoute() {
   const actionData = useActionData();
   const { word } = useLoaderData();
+  
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
+    <div className="">
       <div>
         <Form method="post">
           <input type="hidden" name="wordId" value={word.id} />
-          <div className="flex justify-center">
-            <div className="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-              <h3 className="text-gray-900 text-3xl leading-tight font-medium mb-2">
+          <div className="">
+            <div className="">
+              <h3 className="">
                 {word.hiragana}
               </h3>
               {!word.isHiragana && (
-                <p className="text-gray-700 text-base mb-4">{word.romaji}</p>
+                <p className="">{word.romaji}</p>
               )}
 
               {actionData ? (
@@ -70,7 +71,7 @@ export default function PracticeWordRoute() {
                     type="submit"
                     name="_action"
                     value="next"
-                    className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                    className=""
                   >
                     Next
                   </button>
@@ -80,7 +81,7 @@ export default function PracticeWordRoute() {
                   type="submit"
                   name="_action"
                   value="reveal"
-                  className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                  className=""
                 >
                   Reveal
                 </button>
