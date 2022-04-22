@@ -16,7 +16,10 @@ export default function WordsIndexRoute() {
       <dl className="grid grid-rows-auto grid-cols-2 sm:grid-rows-4 sm:grid-cols-4">
         {data.words.map((word) => {
           return (
-            <div key={word.id} className="text-xl m-2 p-10 border-gray-200 border rounded-lg flex flex-col justify-center items-center">
+            <div
+              key={word.id}
+              className="text-xl m-2 p-10 border-gray-200 border rounded-lg flex flex-col justify-center items-center"
+            >
               <dt>
                 <Link to={`/words/${word.id}`}>
                   {word.hiragana} ({word.romaji})
