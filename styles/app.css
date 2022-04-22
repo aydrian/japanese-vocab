@@ -6,10 +6,15 @@ body {
   @apply bg-gray-100;
 }
 
-button {
-  @apply select-none;
-}
-
 ::selection {
   @apply text-white bg-blue-400;
+}
+
+input {
+  @apply p-5 text-xl my-3 rounded-lg outline-blue-100;
+}
+
+button,
+.button {
+  @apply bg-blue-200 hover:bg-blue-100 transition-colors text-white py-4 px-10 text-xl rounded-lg shadow-button select-none;
 }
