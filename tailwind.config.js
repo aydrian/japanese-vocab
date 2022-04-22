@@ -48,6 +48,9 @@ module.exports = {
         xl: '1280px',
         '2xl': '1700px',
       },
+      boxShadow: {
+        button: '0 4px 14px 0 rgb(0 118 255 / 39%)',
+      },
     },
   },
   plugins: [],

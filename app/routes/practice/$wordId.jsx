@@ -49,29 +49,27 @@ export const action = async ({ request }) => {
 export default function PracticeWordRoute() {
   const actionData = useActionData();
   const { word } = useLoaderData();
-  
+
   return (
-    <div className="">
-      <div>
+    <div className="flex flex-col justify-center items-center">
         <Form method="post">
           <input type="hidden" name="wordId" value={word.id} />
           <div className="">
-            <div className="">
-              <h3 className="">
+            <div className="bg-gray-100 border-2 border-gray-200  flex flex-col justify-center items-center p-10 rounded-lg hover:shadow-2xl transition-shadow w-96 duration-300">
+              <h3 className="text-6xl font-bold">
                 {word.hiragana}
               </h3>
               {!word.isHiragana && (
                 <p className="">{word.romaji}</p>
               )}
-
               {actionData ? (
                 <>
-                  <h3>{actionData.word.english}</h3>
+                  <h3 className="mt-10 text-2xl">{actionData.word.english}</h3>
                   <button
                     type="submit"
                     name="_action"
                     value="next"
-                    className=""
+                    className="bg-blue-200 hover:bg-blue-100 transition-colors text-white py-4 px-10 text-xl rounded-lg mt-20 shadow-button"
                   >
                     Next
                   </button>
@@ -81,7 +79,7 @@ export default function PracticeWordRoute() {
                   type="submit"
                   name="_action"
                   value="reveal"
-                  className=""
+                  className="bg-blue-200 hover:bg-blue-100 transition-colors text-white py-4 px-10 text-xl rounded-lg mt-20 shadow-button"
                 >
                   Reveal
                 </button>
@@ -89,7 +87,6 @@ export default function PracticeWordRoute() {
             </div>
           </div>
         </Form>
-      </div>
     </div>
   );
 }
