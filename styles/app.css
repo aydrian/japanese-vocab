@@ -5,3 +5,11 @@
 body {
   @apply bg-gray-100;
 }
+
+button {
+  @apply select-none;
+}
+
+::selection {
+  @apply text-white bg-blue-400;
+}

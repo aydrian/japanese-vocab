@@ -29,6 +29,11 @@ module.exports = {
         60: '60vw',
         95: '95vw',
       },
+      height: {
+        40: '40vh',
+        60: '60vh',
+        95: '95vh',
+      },
       maxWidth: {
         40: '40vw',
         60: '60vw',

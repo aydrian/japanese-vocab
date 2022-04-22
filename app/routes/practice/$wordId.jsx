@@ -51,7 +51,7 @@ export default function PracticeWordRoute() {
   const { word } = useLoaderData();
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center my-20">
         <Form method="post">
           <input type="hidden" name="wordId" value={word.id} />
           <div className="">
