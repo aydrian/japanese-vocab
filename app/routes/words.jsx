@@ -2,10 +2,12 @@ import { Link, Outlet } from "remix";
 
 export default function WordsRoute() {
   return (
-    <div>
-      <h1>Japanese Vocabulary</h1>
+    <div className="flex flex-col items-center">
+      <h1 className="text-4xl font-bold my-10">Japanese Vocabulary</h1>
       <Outlet />
-      <Link to="/words/new">Add a new word</Link>
+      <Link to="/words/new" className="button my-20">
+        Add a new word
+      </Link>
     </div>
   );
 }

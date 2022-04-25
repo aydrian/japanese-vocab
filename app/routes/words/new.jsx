@@ -14,22 +14,18 @@ export const action = async ({ request }) => {
 
 export default function WordsNewRoute() {
   return (
-    <div>
-      <h2>Add a new word</h2>
-      <form method="post">
-        <label>
-          romaji:
-          <input type="text" name="romaji" />
-        </label>
-        <label>
-          hiragana:
-          <input type="text" name="hiragana" />
-        </label>
-        <label>
-          english:
-          <input type="text" name="english" />
-        </label>
-        <button type="submit" name="_action" value="add">
+    <div className="text-center">
+      <h2 className="my-10 text-3xl">Add a new word</h2>
+      <form method="post" className="flex flex-col">
+        <input type="text" name="romaji" placeholder="Romanji..." />
+        <input type="text" name="hiragana" placeholder="Hiragana..." />
+        <input type="text" name="english" placeholder="English..." />
+        <button
+          type="submit"
+          name="_action"
+          value="add"
+          className="bg-blue-200 mt-10"
+        >
           Add
         </button>
       </form>

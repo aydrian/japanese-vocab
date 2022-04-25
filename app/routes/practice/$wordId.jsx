@@ -5,14 +5,14 @@ import { getRandomWordId } from "~/utils/helpers.server";
 export const loader = async ({ params }) => {
   const randWord = await db.word.findUnique({
     where: {
-      id: params.wordId
+      id: params.wordId,
     },
     select: {
       id: true,
       hiragana: true,
       romaji: true,
-      english: true
-    }
+      english: true,
+    },
   });
 
   const { english, ...word } = randWord;
@@ -20,8 +20,8 @@ export const loader = async ({ params }) => {
   return {
     word: {
       ...word,
-      isHiragana: word.romaji === english
-    }
+      isHiragana: word.romaji === english,
+    },
   };
 };
 
@@ -32,11 +32,11 @@ export const action = async ({ request }) => {
   if (action === "reveal") {
     const word = await db.word.findUnique({
       where: {
-        id
+        id,
       },
       select: {
-        english: true
-      }
+        english: true,
+      },
     });
 
     return json({ word });
@@ -49,46 +49,40 @@ export const action = async ({ request }) => {
 export default function PracticeWordRoute() {
   const actionData = useActionData();
   const { word } = useLoaderData();
-  return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <div>
-        <Form method="post">
-          <input type="hidden" name="wordId" value={word.id} />
-          <div className="flex justify-center">
-            <div className="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-              <h3 className="text-gray-900 text-3xl leading-tight font-medium mb-2">
-                {word.hiragana}
-              </h3>
-              {!word.isHiragana && (
-                <p className="text-gray-700 text-base mb-4">{word.romaji}</p>
-              )}
 
-              {actionData ? (
-                <>
-                  <h3>{actionData.word.english}</h3>
-                  <button
-                    type="submit"
-                    name="_action"
-                    value="next"
-                    className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                  >
-                    Next
-                  </button>
-                </>
-              ) : (
+  return (
+    <div className="flex flex-col justify-center items-center my-20">
+      <Form method="post">
+        <input type="hidden" name="wordId" value={word.id} />
+        <div className="">
+          <div className="bg-gray-100 border-2 border-gray-200  flex flex-col justify-center items-center p-10 rounded-lg transition-shadow w-72 lg:w-96 duration-300">
+            <h3 className="text-6xl font-bold">{word.hiragana}</h3>
+            {!word.isHiragana && <p className="">{word.romaji}</p>}
+            {actionData ? (
+              <>
+                <h3 className="mt-10 text-2xl">{actionData.word.english}</h3>
                 <button
                   type="submit"
                   name="_action"
-                  value="reveal"
-                  className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                  value="next"
+                  className="bg-blue-200 mt-20"
                 >
-                  Reveal
+                  Next
                 </button>
-              )}
-            </div>
+              </>
+            ) : (
+              <button
+                type="submit"
+                name="_action"
+                value="reveal"
+                className="bg-blue-200 mt-20"
+              >
+                Reveal
+              </button>
+            )}
           </div>
-        </Form>
-      </div>
+        </div>
+      </Form>
     </div>
   );
 }
