@@ -1,6 +1,6 @@
-# Welcome to Remix!
+# Japanese Vocabulary - Let's Learn Japanese!
 
-- [Remix Docs](https://remix.run/docs)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Netlify Setup
 

@@ -1,8 +1,8 @@
 {
   "name": "japanese-vocab",
   "private": true,
-  "description": "",
-  "license": "",
+  "description": "A Japanese vocabulary flash card app.",
+  "license": "Apache-2.0",
   "sideEffects": false,
   "scripts": {
     "build": "npm run build:css && remix build",
